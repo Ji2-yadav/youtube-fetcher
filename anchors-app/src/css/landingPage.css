@@ -1,0 +1,132 @@
+
+.main-div{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.header-div{
+    height: 5vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.header-div img{
+    height: 80%;
+    position: relative;
+    left: 0;
+    margin:0.5em 2em;
+}
+
+.main-body{
+    width: 60%;
+    /* background-color: red; */
+    margin: 0 auto;
+}
+.main-body h1{
+    font-size: 5em;
+    padding: 1% 5%;
+}
+
+.main-body h2{
+    padding: 1% 3%;
+    font-size: 1.7em;
+}
+.main-body2{
+    width: 80%;
+    /* background-color: red; */
+    margin: 0 auto;
+}
+.main-body2 h1{
+    font-size: 5em;
+    padding: 1% 5%;
+}
+
+.main-body2 h2{
+    padding: 1% 3%;
+    font-size: 1.7em;
+}
+
+.form{
+    /* background-color: cyan; */
+    width: 100%;
+    height: max-content;
+    padding: 5% 0;
+    z-index: 3;
+}
+.input-box{
+    height: 5vh;
+    width: 70%;
+    margin: 0 2%;
+    border-radius:2em;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    padding-left: 5%;
+    background-color: black;
+
+}
+.button{
+    height: 5vh;
+    outline: none;
+    width: 15%;
+    /* margin: 2%; */
+    background-color: red;
+    border: none;
+    border-radius:2em;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 1.4em;
+    color: rgb(27, 27, 27);
+    z-index: 5;
+}
+.button:hover{
+    color: white;
+}
+.style-div{
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+    /* display: none; */
+    /* background-color: rgb(212, 71, 71); */
+}
+.style-element{
+    height: 40vh;
+    width: 40vh;
+    background-color: rgb(37, 37, 37);
+    border-radius: 50%;
+    position: relative;
+    left: 100%;
+    top: 100%;
+    transform: translate(-80%, 20%);
+    /* float: right; */
+    overflow: hidden;
+    align-items: center;
+    z-index: 1;
+}
+.style-icon{
+    position: relative;
+    top: 50%;
+    left: 0%;
+    transform: translate(25%,-50%);
+    font-size: 4em;
+    color:rgb(71, 71, 71);
+    transition: 1s;
+    pointer-events: all;
+    z-index: 1;
+}
+.style-icon:hover{
+    transform: translate(25%,-50%) rotate(60deg) scale(1.3)
+}
+
+body {  
+    font-family: 'Roboto', sans-serif;
+    /* overflow: hidden; */
+  }
+  
