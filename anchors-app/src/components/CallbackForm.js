@@ -11,23 +11,38 @@ const CallBack = ({onDisableCallBack, ResetPage}) => {
   const [mb, setMb] = useState('');
   const [viewsuccessmsg, setViewsuccessMsg] = useState(false)
   const [isLoader, setIsLoader] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
     setIsLoader(true)
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/callback', {
+    try {
+    const response = await fetch('http://3.109.55.138:5011/callback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, mb }),
     });
+
+    if (!response.ok) {
+        throw new Error('Error in API');
+      }
+
     const result = await response.json();
     if(result)
         setViewsuccessMsg(true)
     setIsLoader(false)
+    } catch (err) {
+        setError('There was some issue!');
+        setTimeout(() => {
+          setError(null);
+        }, 3000);
+    } finally {
+        setIsLoader(false);
+    }
+    }
 
-  };
   const disableCallback =  () => {
     onDisableCallBack(true)
 
@@ -74,6 +89,7 @@ const CallBack = ({onDisableCallBack, ResetPage}) => {
     </form>
     }
     { isLoader?<Loader/> : <></> }
+    {error ? <div className='error-div'>{error}</div>: <></>}
   </>
       
   );

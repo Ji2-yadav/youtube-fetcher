@@ -174,4 +174,4 @@ def get_video_rank(video_metrics, channel_metrics):
     return rank
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port="5011")

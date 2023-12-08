@@ -10,24 +10,35 @@ const Home = () => {
   const [videoLink, setVideoLink] = useState('');
   const [youtubeData, setYouTubeData] = useState(null);
   const [isLoader, setIsLoader] = useState(false)
-
+  const [error, setError] = useState(null)
   const handleSubmit = async (e) => {
-    setIsLoader(true)
+    setIsLoader(true);
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/analyze-video', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ videoLink }),
-    });
-    const result = await response.json();
-    setYouTubeData(result)
-    setIsLoader(false)
 
+    try {
+      const response = await fetch('http://3.109.55.138:5011/analyze-video', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ videoLink }),
+      });
 
+      if (!response.ok) {
+        throw new Error('Error in API');
+      }
+
+      const result = await response.json();
+      setYouTubeData(result);
+    } catch (err) {
+      setError('There is Probably some issue! You sure you pasted the correct link?');
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
+    } finally {
+      setIsLoader(false);
+    }
   };
-
   const handleReset = () => {
     setVideoLink('')
     setYouTubeData(null)
@@ -65,7 +76,7 @@ const Home = () => {
         {
           isLoader?<Loader/> : <></>
         }
-      
+      {error ? <div className='error-div'>{error}</div>: <></>}
     </div>
   );
 };
