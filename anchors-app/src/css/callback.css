@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.801);
+    background-color: rgba(85, 85, 85, 0.801);
     backdrop-filter: blur(8px);
 }
 .cl-form{
@@ -20,9 +20,9 @@
     flex-direction: column;
     border-radius: 20px;
     color: white;
-    border: 3px solid rgb(255, 255, 255);
+    /* border: 3px solid rgb(255, 255, 255); */
     z-index: 6;
-    min-width: 50vw;
+    min-width: 40vw;
 }
 
 .cl-input-box{

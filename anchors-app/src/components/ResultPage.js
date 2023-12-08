@@ -31,7 +31,7 @@ const Result = ({ytDetails, ResetPage}) => {
   return (
     <div className='main-div'>
       <div className='header-div'>
-          <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo" onClick={handleReset}/>
           <div className='callback' onClick={EnableCallback}> <FontAwesomeIcon className="sm-icon" icon={faPhone} /> Request a call back</div>
       </div>
       <div className='main-body2'>

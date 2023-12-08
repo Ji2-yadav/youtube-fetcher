@@ -12,6 +12,7 @@
     height: 5vh;
     overflow: hidden;
     display: flex;
+    cursor: pointer;
 }
 
 .header-div img{
